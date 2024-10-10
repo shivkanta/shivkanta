@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title> Employee Rgistration</title>
+		<script>
+			var empList=[];
+			function submit()
+			{
+				var id=document.getElementById("empId").value;
+				var name=document.getElementById("empName").value;
+				var age=document.getElementById("empAge").value;
+				var salary=document.getElementById("empSalary").value
+				
+				var emp={
+						"Id":id,
+						"Name":name,
+						"Age":age,
+						"Salary":salary
+					
+					};
+				empList.push(emp);
+
+
+			}
+			function displayAllEmployee()
+			{
+				for(var i=0;i<empList.length;i++)
+			}
+		</script>
+	</head>
+	<body>
+		<table> 
+		<tr>
+			<td>Employee Id</td>
+			<td><input type="text" id="empId" /></td>
+		</tr>
+		<tr>
+			<td>Employee Name</td>
+			<td><input type="text" id="empName" /></td>
+		</tr>
+		<tr>
+			<td>Employee Age</td>
+			<td><input type="text"  id="empAge" /></td>
+		</tr>
+		<tr>
+			<td>Employee Salary</td>
+			<td><input type="text" id="empSalary" /></td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" value="Submit"  onclick="submit()"/>
+				
+			</td>
+			
+		</tr>
+
+
+		</table>
+
+		<table border="1">
+			<thead>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Salary</th>
+			<thead>
+			<tbody id="empData">
+				
+			</tbody>
+		</table>
+		
+
+	</body>
+</html>
