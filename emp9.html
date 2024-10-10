@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Employee Registration</title>
+</head>
+<body>
+    <script>
+        var empList = [];
+        
+        function addEmployee() {
+            var id = document.getElementById("empId").value;
+            var name = document.getElementById("empName").value;
+            var age = document.getElementById("empAge").value;
+            var salary = document.getElementById("empSalary").value;
+
+            var employee = {
+                "Id": id,
+                "Name": name,
+                "Age": age,
+                "Salary": salary
+            };
+            empList.push(employee);
+            displayAllEmployees();
+            reset();
+        }
+
+        function displayAllEmployees() {
+            var empData = document.getElementById("empData");
+            empData.innerHTML = "";
+            for (var i = 0; i < empList.length; i++) {
+                empData.innerHTML += `
+                <tr>
+                    <td>${empList[i].Id}</td> 
+                    <td>${empList[i].Name}</td>
+                    <td>${empList[i].Age}</td>
+                    <td>${empList[i].Salary}</td>
+                    <td>
+                        <input type="button" value="Edit" onclick="getEmployee(${i})"/>
+                        <input type="button" value="Delete" onclick="deleteEmployee(${i})"/>
+                    </td>
+                </tr>
+                `;
+            }
+        }
+
+        function getEmployee(id) {
+            // Implementation for getting an employee's details for editing
+        }
+
+        function editEmployee(id) {
+
+            // Implementation for editing an employee's details
+        }
+
+        function deleteEmployee(id) {
+            empList.splice(id, 1); // Remove employee from list
+            displayAllEmployees(); // Refresh the display
+        }
+
+        function reset() {
+            document.getElementById("empId").value = "";
+            document.getElementById("empName").value = "";
+            document.getElementById("empAge").value = "";
+            document.getElementById("empSalary").value = "";
+        }
+	function reset ()
+		{
+	    var id = document.getElementById("empId").value;
+            var name = document.getElementById("empName").value;
+            var age = document.getElementById("empAge").value;
+            var salary = document.getElementById("empSalary").value;
+		}
+    </script>
+
+    <h1>Employee Registration</h1>
+    <table>
+        <tr>
+            <td>Employee Id</td>
+            <td><input type="text" id="empId"/></td>
+        </tr>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" id="empName"/></td>
+        </tr>
+        <tr>
+            <td>Employee Age</td>
+            <td><input type="text" id="empAge"/></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="text" id="empSalary"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Submit" onclick="addEmployee()"/>
+            </td>
+        </tr>
+    </table>
+    
+    <table>
+	<table border="2">
+        <thead>
+            <tr>
+                <th> Id</th>
+                <th> Name</th>
+                <th> Age</th>
+                <th> Salary</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody id="empData">
+            
+        </tbody>
+    </table>
+</body>
+</html>
